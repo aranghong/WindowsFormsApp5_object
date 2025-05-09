@@ -9,6 +9,7 @@ using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp_07_Class;
 
 namespace WindowsFormsApp5_object
 {
@@ -18,24 +19,27 @@ namespace WindowsFormsApp5_object
         {
             InitializeComponent();
 
-            //생성자
+            // --- #4-1. 기본 생성자
             Car car1 = new Car();
-            car1.speed = 20;
-            car1.color = "은색";
-            car1.print();
+            car1.Speed = 20;
+            car1.Color = "은색";
+            car1.PrintInfo();
 
+            Console.WriteLine("-------------------");
 
-            Console.WriteLine("\r\n-----------------------\r\n");
-
+            // --- #4-2. 매개변수 있는 생성자
             Car car2 = new Car("그랜저", 50, "검정", 2024);
-            car2.print();
-            car2.accel(30);
-            car2.print();
+            car2.Accelerate(30);
+            car2.PrintInfo();
+            Console.WriteLine("-------------------");
 
-
-
+            // --- #6. 메서드 사용
+            car2.Brake(100);
+            Console.WriteLine("-------------------");
+            // --- #7. static 메서드 호출
+            Car.ShowTotalCars();
         }
     }
-
-    
 }
+
+
